@@ -39,3 +39,38 @@ print('list after removing duplicates - but order may not be preserved', list(se
 from collections import OrderedDict
 print('list after removing duplicates - order preserved', list(OrderedDict.fromkeys(a)))
 #python collections - read about them
+
+dict_var = {'a':1, 'b':2}
+dict_var = dict(a=1, b=2)
+print(dict_var)
+#A dict  function is another way to create a dictionary. dict  is also used to convert other objects to a dictionary.
+print(dict_var['b'])
+print(dict_var['a'] + dict_var['b'])
+dict_var['c'] = 3
+print(dict_var)
+
+import functools
+print(functools.reduce(lambda a,b : a +b ,list(dict_var.values())))
+print(sum(dict_var.values()))
+
+dict_var = dict((key, value) for key, value in dict_var.items() if value <= 1)
+print(dict_var)
+
+keys_list = ['a','b','c']
+
+from pprint import pprint
+dict_var1={}
+for i, key in enumerate(keys_list):
+    dict_var1[key] = [x for x in range(i*10 + 1, i*10 + 11)]
+pprint(dict_var1)
+
+print(dict_var1['b'][2])
+for key, value in dict_var1.items():
+    print(key, " has value ", value)
+
+for x in range(ord('a'), ord('z') + 1):
+    print(chr(x))
+
+import string
+for letter in string.ascii_lowercase:
+    print(letter)
