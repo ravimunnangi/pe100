@@ -2,7 +2,7 @@
 a=2
 a=4
 a=6
-print(a+a+a)
+print('exercise 1:', a+a+a)
 
 #exercise 2
 #Variable names must start with a letter or an underscore. Everything else will throw a SyntaxError.
@@ -13,7 +13,7 @@ print(a+a+a)
 #exercise 4
 a="1"
 b=2
-print(int(a)+b)
+print('exercise 2:', int(a)+b)
 letters =['a','b','c','d','e','f','g','h','i','j']
 print(letters[1])
 #list slicing is upper-bound exclusive
@@ -74,3 +74,77 @@ for x in range(ord('a'), ord('z') + 1):
 import string
 for letter in string.ascii_lowercase:
     print(letter)
+
+for i in range(1,11):
+    print(i)
+
+def acceleration(v2,v1,t2,t1):
+    return (v2-v1)/(t2-t1)
+
+print(acceleration(10,5,3,1))
+
+from math import pi
+
+def lvc(h, r=10):
+    return ((4 * pi * r**3)/3) - (pi * h**2 * (3*r - h)/3)
+
+print(lvc(2))
+
+inp_str = 'hello how are you'
+print('count of words in string ', len(inp_str.split(' ')))
+
+import re
+word_count = 0
+with open('words1.txt','r') as inp_file:
+    for line in inp_file:
+        word_count = word_count + len(re.split(' |,',line))
+print('no fo words in the file', word_count)
+
+import string
+with open('words2.txt','w') as out_file:
+    for ch in string.ascii_lowercase:
+        out_file.write(ch + '\n')
+
+a = [1,2,3]
+b = (4,5,6)
+
+for i, j in zip(a,b):
+    print(i + j)
+
+a = [ch for ch in string.ascii_lowercase]
+lis_a = a[::3]
+lis_b= a[1::3]
+lis_c = a[2::3]
+for ch1, ch2, ch3 in zip(lis_a, lis_b, lis_c):
+    print(ch1 + ch2 + ch3)
+
+import os
+os.makedirs('letters',exist_ok=True)
+
+for ch in string.ascii_lowercase:
+    with open('letters/' + ch + '.txt', 'w') as ch_file:
+        ch_file.write(ch)
+
+import glob
+chrs = ''
+file_pattern = 'letters/*.txt'
+file_list = glob.glob(file_pattern)
+file_list.sort(key=os.path.getctime)
+for file in file_list:
+    with open(file, 'r') as ch_file:
+        chrs = chrs + ch_file.read()
+
+chrs_list = [ch for ch in chrs]
+print(chrs_list)
+
+python_list = [ch for ch in chrs_list if ch in 'python']
+print(python_list)
+
+#cannot use keywords for variable names
+
+print(type("Hey".replace("ey","i")[-1]))
+
+fn = input("your first name: ")
+ln = input("your last name: ")
+print("you first name is %s and your last name is %s" % (fn, ln))
+
