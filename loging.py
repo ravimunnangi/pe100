@@ -1,5 +1,6 @@
 import logging
 from pathlib import Path
+import loging1
 
 logger = logging.getLogger(__name__)
 
@@ -24,3 +25,5 @@ try:
     print(num/den)
 except Exception as e:
     logging.exception(e)
+
+loging1.log1()
